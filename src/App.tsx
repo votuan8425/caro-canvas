@@ -1,25 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import TictactoeGame from './components/TictactoeGame';
+import { Provider } from 'react-redux';
+import { setupStore } from './redux/store';
 
-function App() {
+const App: React.FC = (): React.ReactElement => {
+
+  const store = setupStore();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    // <PDFViewer>
+    <Provider store={store}>
+      <TictactoeGame />
+    </Provider>
+    // </PDFViewer>
   );
 }
 
